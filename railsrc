@@ -1,5 +1,14 @@
 #!/usr/bin/ruby
 
+require 'active_record'
+
+begin
+  require 'wirble'
+  Wirble.init
+  Wirble.colorize
+rescue LoadError
+end
+
 begin
   require 'hirb' # sudo gem install cldwalker-hirb --source http://gems.github.com
   Hirb.enable
@@ -18,3 +27,5 @@ end
 def hide_log
   change_log(nil)
 end
+
+show_log

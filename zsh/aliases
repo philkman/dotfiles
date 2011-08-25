@@ -19,6 +19,12 @@ alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
+# SVN
+alias svu='svn update'
+alias svc='svn ci -m'
+alias svi='svn info'
+alias svd='svn diff'
+
 # rails
 alias sc='script/console'
 alias ss='script/server'
@@ -28,6 +34,7 @@ alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
+alias uc='bundle exec unicorn -c config/unicorn.rb'
 
 # commands starting with % for pasting from web
 alias %=' '
