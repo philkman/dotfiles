@@ -2,7 +2,14 @@
 alias ..='cd ..'
 
 # ls
-alias ls="ls -F"
+case `uname -s` in
+  Linux)
+    alias ls="ls --color"
+    ;;
+  Darwin)
+    alias ls="ls -F"
+    ;;
+esac
 alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
