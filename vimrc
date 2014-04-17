@@ -206,5 +206,4 @@ endfunction
 map <Leader>w :call OpenURL()<CR>
 
 
-
-
+filetype indent off

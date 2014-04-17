@@ -7,3 +7,7 @@
 
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/opt/peaq/apps/dev/current/bin # Add peaq to PATH for scripting
+eval "$(rbenv init -)"

@@ -7,7 +7,7 @@ case `uname -s` in
     alias ls="ls --color"
     ;;
   Darwin)
-    alias ls="ls -F"
+    alias ls="/bin/ls -F"
     ;;
 esac
 alias l="ls -lAh"
