@@ -1,5 +1,6 @@
 require 'hirb'
 
-Pry.config.print = proc do |output, value|
-  Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+old_print = Pry.config.print
+Pry.config.print = proc do |*args|
+  Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
 end

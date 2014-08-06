@@ -11,3 +11,5 @@
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/opt/peaq/apps/dev/current/bin # Add peaq to PATH for scripting
 eval "$(rbenv init -)"
+
+test -x "`which archey`" && archey
