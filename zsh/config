@@ -6,8 +6,8 @@ fi
 
 export PATH="$HOME/bin:$HOME/.bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export EDITOR="vim"
-#export EDITOR='subl -w'
+#export EDITOR="vim"
+export EDITOR='subl -w'
 
 fpath=(~/.zsh/functions $fpath)
 
