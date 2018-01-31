@@ -1,3 +1,63 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export HOMEBREW_NO_ANALYTICS=1
+
+# CudaNN, nVidia deep learning libraries
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+
+function tabc() {
+  NAME=$1
+  if [ -z "$NAME" ]; then NAME="Default"; fi
+  # if you have trouble with this, change
+  # "Default" to the name of your default theme
+  echo -e "\033]50;SetProfile=$NAME\a"
+}
+
+
+function setbadge() {
+	TEXT=$1
+	printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "$TEXT" | base64)
+}
+
+function tab-reset() {
+    NAME="Default"
+    echo -e "\033]50;SetProfile=$NAME\a"
+}
+
+function colorssh() {
+    if [[ -n "$ITERM_SESSION_ID" ]]; then
+        trap tab-reset EXIT
+        if [[ "$*" =~ p01-.* ]]; then
+            tabc Prod
+            #tab-red
+            #setbadge "P01 - Production"
+        elif [[ "$*" =~ p02-.* ]]; then
+            tabc Test
+            #tab-blue
+            #setbadge "P02 - Demo"
+        elif [[ "$*" =~ p03-.* ]]; then
+            tabc Prod
+            #tab-red
+            #setbadge "P03 - EMEA"
+        elif [[ "$*" =~ d01-.* ]]; then
+            tabc Dev
+            #tab-green
+            #setbadge "D01 - Dev"
+        elif [[ "$*" =~ d02-.* ]]; then
+            tabc Dev
+            #tab-green
+            #setbadge "D02 - Dev"
+        elif [[ "$*" =~ .*-db-.* ]]; then
+            tabc psql
+            #tab-yellow
+            #setbadge "Postgres"
+        else
+            tabc Default
+        fi
+        setbadge $1
+    fi
+    /usr/bin/ssh $*
+}
+
+alias ssh="colorssh"
+alias def="tabc"

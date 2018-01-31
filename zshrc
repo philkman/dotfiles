@@ -6,6 +6,7 @@ export PATH=$p
 . ~/.zsh/config
 . ~/.zsh/aliases
 . ~/.zsh/completion
+. ~/.zsh/iterm2_shell_integration.zsh
 
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
