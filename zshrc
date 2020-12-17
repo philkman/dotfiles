@@ -15,6 +15,7 @@ export PATH=$p
 export PATH="/usr/local/bin:$PATH"
 
 PATH=$PATH:/opt/peaq/apps/dev/current/bin # Add peaq to PATH for scripting
+export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
 eval "$(rbenv init -)"
 
 test -x "`which archey`" && archey
