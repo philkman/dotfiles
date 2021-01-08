@@ -33,5 +33,12 @@ def app_name
 end
 
 if defined?(Rails)
-  Pry.config.prompt = proc { |obj, nest_level, _| "[#{app_name}][#{formatted_env}] #{obj}:#{nest_level}> " }
+  #Pry.config.prompt = proc { |obj, nest_level, _| "[#{app_name}][#{formatted_env}] #{obj}:#{nest_level}> " }
+  Pry.config.prompt = Pry::Prompt.new(
+    'custom',
+    'my custom prompt',
+    [
+      proc { |obj, nest_level, _| "[#{app_name}][#{formatted_env}] #{obj}:#{nest_level}> " }
+    ]
+  )
 end
